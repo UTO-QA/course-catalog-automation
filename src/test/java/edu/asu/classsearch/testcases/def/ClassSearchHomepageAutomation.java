@@ -82,7 +82,7 @@ public class ClassSearchHomepageAutomation {
 
     @Then("^A Warning should be Displayed for incorrect subject$")
     public void test_subject_incorrect() {
-        val.validateSearchError("Please update your search criteria and try again.");
+        val.validateSearchError("No courses were found that matched your criteria. Please update your search criteria and try again.");
         closeconnection();
     }
 
