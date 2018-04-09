@@ -6,7 +6,7 @@ import cucumber.api.junit.*;
 
 @RunWith(Cucumber.class)
 
-@CucumberOptions(features = { "src/test/resources/features/test.feature"
+@CucumberOptions(features = { "src/test/resources/features/sprint1.feature"
 	/*	"src/test/resources/features/sprint1.feature", "src/test/resources/features/sprint2.feature", "src/test/resources/features/Advanced Search.feature",
 		"src/test/resources/features/Keyword Search.feature",
 		"src/test/resources/features/Filter Search.feature" */}, glue = "edu.asu.classsearch.testcases.def", format = {

@@ -26,7 +26,7 @@ public class ClassSearchHomepageAutomation {
     private WebDriver driver;
     private String result = "";
     private String result2 = "";
-
+    private final String EXPECTED_ERROR_MESSAGE = "No courses were found that matched your criteria. Please update your search criteria and try again.";
     // New Class to Validate Search Results
     private ClassSearchResultsValidator val;
     private String validateString = "";
@@ -82,7 +82,7 @@ public class ClassSearchHomepageAutomation {
 
     @Then("^A Warning should be Displayed for incorrect subject$")
     public void test_subject_incorrect() {
-        val.validateSearchError("No courses were found that matched your criteria. Please update your search criteria and try again.");
+        val.validateSearchError(EXPECTED_ERROR_MESSAGE);
         closeconnection();
     }
 
@@ -116,7 +116,7 @@ public class ClassSearchHomepageAutomation {
 
     @Then("^A Warning should be Displayed for incorrect subject and number scenario$")
     public void test_subject1_number() {
-        val.validateSearchError("Please update your search criteria and try again.");
+        val.validateSearchError(EXPECTED_ERROR_MESSAGE);
         closeconnection();
     }
 
@@ -133,7 +133,7 @@ public class ClassSearchHomepageAutomation {
 
     @Then("^A Warning should be Displayed for swapped scenario$")
     public void test_subject_2_number() {
-        val.validateSearchTermError("Please provide numbers only");
+        val.validateSearchTermError(EXPECTED_ERROR_MESSAGE);
         closeconnection();
     }
 
@@ -149,7 +149,7 @@ public class ClassSearchHomepageAutomation {
 
     @Then("^A Warning should be Displayed for correct Number Scenario$")
     public void validation_number() {
-        val.validateSearchTermError("Please narrow your search by entering a subject, general studies or college.");
+        val.validateSearchTermError_new("Please narrow your search by entering a subject, keyword, general studies or college.");
         closeconnection();
     }
 
@@ -164,7 +164,7 @@ public class ClassSearchHomepageAutomation {
 
     @Then("^A Warning should be Displayed for incorrect number scenario$")
     public void validation_incorrect_number() {
-        val.validateSearchTermError("Please narrow your search by entering a subject, general studies or college.");
+        val.validateSearchTermError_new("Please narrow your search by entering a subject, keyword, general studies or college.");
         closeconnection();
     }
 
@@ -200,7 +200,7 @@ public class ClassSearchHomepageAutomation {
     @Then("^An Appropriate warning message is displayed for incorrect keyword$")
     public void test_incorrect_keyword() {
 
-        val.validateSearchError("Please update your search criteria and try again.");
+        val.validateSearchError(EXPECTED_ERROR_MESSAGE);
 
         classSearchHomePageMethods.keyword(result2);
         classSearchHomePageMethods.performsearch();
@@ -242,7 +242,7 @@ public class ClassSearchHomepageAutomation {
 
     @Then("^The Warning is Displayed for incorrect keyword or subject scenario$")
     public void test_incorrect_keyword_Subject() {
-        val.validateSearchError("Please update your search criteria and try again.");
+        val.validateSearchError(EXPECTED_ERROR_MESSAGE);
         closeconnection();
 
     }

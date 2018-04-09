@@ -293,22 +293,42 @@ public class ClassSearchResultsValidator {
 
 	}
 
+	public void validateSearchTermError_new(String expectedErrorMessage) {
+		try {
+			validateSearchError(expectedErrorMessage);
+		} catch(NoSuchElementException e) {
+			System.out.println("Search Error not present...Verifying elastic errors");
+			WebElement errorElement = this.driver.findElement(By.xpath("//*[@id='narrow-search-error-course']/span"));
+			String errorString = errorElement.getText();
+			errorString = ("" + errorString).trim();
+			Assert.assertEquals(expectedErrorMessage, errorString);
+		}
+	}
+
 	public void validateSearchTermError(String expectedErrorMessage) {
 		try {
-			validateSearchError("Please update your search criteria and try again.");
+			validateSearchError(expectedErrorMessage);
 		} catch(NoSuchElementException e) {
 			System.out.println("Search Error not present...Verifying elastic errors");
 			WebElement errorElement = this.driver.findElement(By.xpath("//*[@class='validation-error']"));
 			String errorString = errorElement.getText();
+			System.out.println("error check "+errorString);
 			errorString = ("" + errorString).trim();
 			Assert.assertEquals(expectedErrorMessage, errorString);
 		}
 
 	}
+
 	
 	public void validateSearchError(String expectedErrorMessage) {
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		WebElement errorElement = this.driver.findElement(By.xpath("//*[@class='error_msg']"));
 		String errorString = errorElement.getText();
+		System.out.println(errorString);
 		Assert.assertEquals(expectedErrorMessage, errorString);
 	}
 
