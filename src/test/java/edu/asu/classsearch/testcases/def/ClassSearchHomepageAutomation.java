@@ -201,11 +201,9 @@ public class ClassSearchHomepageAutomation {
     public void test_incorrect_keyword() {
 
         val.validateSearchError(EXPECTED_ERROR_MESSAGE);
-
         classSearchHomePageMethods.keyword(result2);
         classSearchHomePageMethods.performsearch();
         val.validateSearchTermError("Keyword must be longer");
-
         closeconnection();
     }
 

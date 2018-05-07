@@ -306,17 +306,11 @@ public class ClassSearchResultsValidator {
 	}
 
 	public void validateSearchTermError(String expectedErrorMessage) {
-		try {
-			validateSearchError(expectedErrorMessage);
-		} catch(NoSuchElementException e) {
-			System.out.println("Search Error not present...Verifying elastic errors");
-			WebElement errorElement = this.driver.findElement(By.xpath("//*[@class='validation-error']"));
+			WebElement errorElement = this.driver.findElement(By.xpath("//*[@id='keyword-error']"));
 			String errorString = errorElement.getText();
 			System.out.println("error check "+errorString);
 			errorString = ("" + errorString).trim();
 			Assert.assertEquals(expectedErrorMessage, errorString);
-		}
-
 	}
 
 	
