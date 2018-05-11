@@ -46,7 +46,7 @@ public class ClassSearch_AdvancedSearch {
 	}
 
 	private WebElement honors() {
-		WebElement elem = driver.findElement(By.xpath("//*[@id='honors']"));
+		WebElement elem = driver.findElement(By.xpath("//*[@id='college']"));
 		return elem;
 	}
 
@@ -115,7 +115,8 @@ public class ClassSearch_AdvancedSearch {
 		element.sendKeys(endDate);
 	}
 
-	public void clickHonors() {
+	public void clickHonors() throws InterruptedException {
+	//	Thread.sleep(1000);
 		WebElement element = honors();
 		element.click();
 	}
@@ -170,4 +171,10 @@ public class ClassSearch_AdvancedSearch {
 		}
 	}
 
+	public WebElement selectHonors() {
+		WebElement elem = driver.findElement(By.xpath("//*[@id='college']"));
+		Select dropdown= new Select(elem);
+		dropdown.selectByVisibleText("Honors");
+		return elem;
+	}
 }

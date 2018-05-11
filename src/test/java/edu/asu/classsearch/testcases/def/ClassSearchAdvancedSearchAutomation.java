@@ -153,7 +153,6 @@ public class ClassSearchAdvancedSearchAutomation {
 	public void validate_ClassNumber() {
 		val.validateSubjectNumber(validateString[0]);
 		val.validateClassNumber(validateString[1]);
-
 		val.verifyResultWithProd(prodDriver);
 
 	}
@@ -215,29 +214,27 @@ public class ClassSearchAdvancedSearchAutomation {
 		// Validate Subject Details and Instructor Details
 		val.validateSubjectNumber(validateString[0]);
 		val.validateEndDate(validateString[1]);
-
 		val.verifyResultWithProd(prodDriver);
 
 	}
 
 	// 28: User Enters correct subject and checks Honors
 	@When("^User performs a search using the correct Subject and checks Honors check box$")
-	public void positive_Honors() {
+	public void positive_Honors() throws InterruptedException {
 		String[] values = ClassSearchInputs.inputload("TC_28").split(",");
 		String subject = values[0];
 		validateString = new String[1];
 		validateString[0] = subject;
-
 		home.subject(subject);
 		adv.clickAdvancedSearch();
+		Thread.sleep(5000);
 		adv.clickHonors();
+		adv.selectHonors();
 		home.performsearch();
-
-		prodHome.subject(subject);
-		prodAdv.clickAdvancedSearch();
-		prodAdv.clickHonors();
-		prodHome.performsearch();
-
+		//prodHome.subject(subject);
+		//prodAdv.clickAdvancedSearch();
+		//prodAdv.clickHonors();
+		//prodHome.performsearch();
 	}
 
 	@Then("^The Results must display only honors classes or classes that offer honors enrichment contracts$")
@@ -282,11 +279,13 @@ public class ClassSearchAdvancedSearchAutomation {
 
 	// 30: User Searches using General studies
 	@When("^User performs a search using General Studies option$")
-	public void positive_GeneralStudies() {
+	public void positive_GeneralStudies() throws InterruptedException {
+
 		String[] values = ClassSearchInputs.inputload("TC_30").split("&");
 		String gs = values[0];
 		validateString = values;
 		adv.clickAdvancedSearch();
+		Thread.sleep(5000);
 		adv.selectGeneralStudies(gs);
 		// If GS option 1 is provided
 		if (values.length > 1) {

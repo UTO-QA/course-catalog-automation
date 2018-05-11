@@ -133,7 +133,7 @@ public class ClassSearchHomepageAutomation {
 
     @Then("^A Warning should be Displayed for swapped scenario$")
     public void test_subject_2_number() {
-        val.validateSearchTermError(EXPECTED_ERROR_MESSAGE);
+        val.validateSearchTermError_new(EXPECTED_ERROR_MESSAGE);
         closeconnection();
     }
 

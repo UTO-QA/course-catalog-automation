@@ -18,23 +18,3 @@ Feature: CC-941 Automated testing for Jan 2018
     Scenario: TC_55_CC-921 Revert catalog number logic
         Given The user is on Class Search page
         Then User is able to search using a wildcard in number field
-
-    Scenario: TC_52 Verify Filter Search Criteria with Filter By Location to test for Cochise location
-        Given The user is on Class Search page Filter Search prod
-        When User performs a search with subject and applies Location filter current
-        Then Results should return for locations matching the filter current
-
-    Scenario: TC_53 Verify Filter Search Criteria with Filter By Location to test for Central AZ College location
-        Given The user is on Class Search page Filter Search prod
-        When User performs a search with subject and applies Location filter current
-        Then Results should return for locations matching the filter current
-
-    Scenario: TC_54 Verify Filter Search Criteria with Filter By Location to test for Lake Havasu location
-        Given The user is on Class Search page Filter Search prod
-        When User performs a search with subject and applies Location filter current
-        Then Results should return for locations matching the filter current
-
-    Scenario: TC_59_CC-935 VIP classes do not return the drawer or details page experiences
-        Given The user is on Class Search page
-        When User enters correct Subject and Number
-        Then Clicking on Class record must return the drawer or details page experiences

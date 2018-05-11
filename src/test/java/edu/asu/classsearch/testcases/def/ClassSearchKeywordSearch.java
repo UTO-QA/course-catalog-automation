@@ -74,7 +74,7 @@ public class ClassSearchKeywordSearch {
     @Then("^The Results must contain records with matching class title/topic title or instructor$")
     public void validate_3CharSearch_ClassTitle() {
         // Validate Subject Details and Instructor Details
-        // val.validateClassTitleAndIns(validateString[0]);
+        //val.validateClassTitleAndIns(validateString[0]);
         // MatcherAssert.assertThat(results,CoreMatchers.containsString("Showing"));
         val.verifyResultWithProd(prodDriver);
 
@@ -119,17 +119,17 @@ public class ClassSearchKeywordSearch {
 
         // Compare the results with a new search that matches the Subject formal
         // description
-        WebDriver driver2 = ClassSearchDriver.getDriver("https://webapp4-qa.asu.edu/elastic-catalog");
+
         String[] values = ClassSearchInputs.inputload(testCase).split(",");
         String subject = values[1];
-        home = new classearch_HomePage_Methods(driver2);
+        home = new classearch_HomePage_Methods(driver);
 
         home.subject(subject);
         home.performsearch();
 
-        val.verifyResultWithProd(driver2);
+        val.verifyResultWithProd(driver);
 
-        val.verifyResultWithProd(prodDriver);
+   //     val.verifyResultWithProd(prodDriver);
         // MatcherAssert.assertThat(results,CoreMatchers.containsString("Showing"));
         // TODO: how to check subject is correct.
 
@@ -169,20 +169,15 @@ public class ClassSearchKeywordSearch {
             //Partial Matcher
             MatcherAssert.assertThat("Course Title/Instructor is " + courseTitle + "/" + instructorTitle + " and the keyword is " + keyword, StringUtils.containsIgnoreCase(courseTitle, keyword) || StringUtils.containsIgnoreCase(instructorTitle, keyword));
             System.out.println("Course Title/Instructor is " + courseTitle + "/" + instructorTitle + " and the keyword is " + keyword);
-
         }
-
-
     }
 
     @Then("^The keyword search results are case insensitive$")
     public void keyword_results_case_insensitive() {
         String[] values = ClassSearchInputs.inputload(testCase).split(",");
         String caseInsensitiveKeyWord = values[1];
-
         prodHome.keyword(caseInsensitiveKeyWord);
         prodHome.performsearch();
-
         val.verifyResultWithProd(prodDriver);
 
     }

@@ -1,4 +1,4 @@
-Feature: Class Search verify Subject,Number and keyword
+Feature: Course Search verify Subject,Number and keyword
 
 	Scenario: TC_1 Verify User provides correct Subject 
 		Given The user is on Class Search page 
