@@ -9,6 +9,11 @@ Feature: Course Search verify Subject,Number and keyword
 		Given The user is on Class Search page 
 		When User enters Incorrect Subject
 		Then A Warning should be Displayed for incorrect subject
+
+	Scenario: TC_222 Verify User provides nothing with no filter criteria
+		Given The user is on Class Search page
+		When User enters nothing and performs search
+		Then A Warning should be Displayed for no filter criteria
 				
 	Scenario: TC_3 Verify User provides Correct Subject and Number
 		Given The user is on Class Search page 
@@ -24,16 +29,16 @@ Feature: Course Search verify Subject,Number and keyword
 		Given The user is on Class Search page 
 		When User enters swapped values for Subject and Number
 		Then A Warning should be Displayed for swapped scenario
-		
-    Scenario: TC_6 Verify User provides only a correct Number
-		Given The user is on Class Search page 
+
+	Scenario: TC_6 Verify User provides only a correct Number
+		Given The user is on Class Search page
 		When User enters correct Number
-		Then  A Warning should be Displayed for correct Number Scenario
-		
-	Scenario: TC_7 Verify a warning is displayed when user enters only number which is incorrect 
-		Given The user is on Class Search page 
+		Then No Warning should be Displayed for correct Number Scenario
+
+	Scenario: TC_7 Verify a warning is displayed when user enters only number which is incorrect
+		Given The user is on Class Search page
 		When User enters incorrect Number
-		Then  A Warning should be Displayed for incorrect number scenario
+		Then A Warning should be Displayed for incorrect number scenario1
 
 #	Outdated scenario. Covered in Keyword search part.		
 #	Scenario: TC_8 Verify the user is able to perform the search successfully using a correct  keyword 

@@ -65,12 +65,16 @@ public class ClassSearchHomepageAutomation {
         classSearchHomePageMethods.performsearch();
     }
 
+    @When("^User enters nothing and performs search$")
+    public void negative1_subject() {
+        classSearchHomePageMethods.performsearch();
+    }
+
     @Then("^The Results with correct subject info should be Displayed$")
     public void test_Positive1_subject() {
         val.validateSubjectNumber(validateString);
         closeconnection();
     }
-
     // TEST2: CHECK if course rejects Negative Subject
     @When("^User enters Incorrect Subject$")
     public void incorrect_subject1() {
@@ -153,6 +157,11 @@ public class ClassSearchHomepageAutomation {
         closeconnection();
     }
 
+    @Then("^No Warning should be Displayed for correct Number Scenario$")
+    public void validation_number_no() {
+        val.validateSearchTermError_new("");
+        closeconnection();
+    }
     // TEST 7: CHECK if search by incorrect number displays a warning message
     @When("^User enters incorrect Number$")
     public void check_incorrect_number() {
@@ -168,6 +177,11 @@ public class ClassSearchHomepageAutomation {
         closeconnection();
     }
 
+    @Then("^A Warning should be Displayed for incorrect number scenario1$")
+    public void validation_incorrect_number1() {
+        val.validateSearchTermError_new("No courses were found that matched your criteria. Please update your search criteria and try again.");
+        closeconnection();
+    }
     // TEST 8: Verify that search with only keyword produces results
     @When("^User performs a search using only the correct keyword$")
     public void keyword() {
@@ -245,6 +259,12 @@ public class ClassSearchHomepageAutomation {
 
     }
 
+    @Then("^A Warning should be Displayed for no filter criteria$")
+    public void test_nofilter_Subject() {
+        val.validateSearchTermError_new("Please narrow your search by entering at least one filter.");
+        closeconnection();
+
+    }
     // TEST 12: Verify that toggle the radio button changes the results
     @When("^User selects for open classes and performs a search$")
     public void toggleradio_open() {

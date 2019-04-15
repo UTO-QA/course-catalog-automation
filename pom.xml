@@ -80,8 +80,8 @@
 						</goals>
 						<configuration>
 							<projectName>Class-Search Automation</projectName>
-							<outputDirectory>C:/Users/udasu/Dropbox (ASU)/automation/Reports/cucumber-html-reports</outputDirectory>
-							<cucumberOutput>C:/Users/udasu/Dropbox (ASU)/automation/Reports/cucumber.json</cucumberOutput>
+							<outputDirectory>C:/Users/bsampat5/Selenium_Reports/cucumber-html-reports</outputDirectory>
+							<cucumberOutput>C:/Users/bsampat5/Selenium_Reports/cucumber.json</cucumberOutput>
 							<parallelTesting>false</parallelTesting>
               				<buildNumber>42</buildNumber>
 						</configuration>
